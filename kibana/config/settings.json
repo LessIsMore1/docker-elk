@@ -1,0 +1,216 @@
+[
+  {
+    "_id": "cbd91480-3c6e-11e7-a116-6f4b9a4ce9da",
+    "_type": "dashboard",
+    "_source": {
+      "title": "New Dashboard",
+      "hits": 0,
+      "description": "",
+      "panelsJSON": "[{\"col\":7,\"id\":\"b00b2900-3c6e-11e7-a116-6f4b9a4ce9da\",\"panelIndex\":2,\"row\":1,\"size_x\":6,\"size_y\":3,\"type\":\"visualization\"},{\"col\":1,\"id\":\"b2322b60-3b34-11e7-afc1-af1ac21f7f52\",\"panelIndex\":3,\"row\":1,\"size_x\":6,\"size_y\":3,\"type\":\"visualization\"},{\"size_x\":6,\"size_y\":3,\"panelIndex\":4,\"type\":\"visualization\",\"id\":\"1569a480-3c73-11e7-a116-6f4b9a4ce9da\",\"col\":1,\"row\":4},{\"size_x\":6,\"size_y\":3,\"panelIndex\":5,\"type\":\"visualization\",\"id\":\"85096320-3c73-11e7-a116-6f4b9a4ce9da\",\"col\":7,\"row\":4}]",
+      "optionsJSON": "{\"darkTheme\":false}",
+      "uiStateJSON": "{\"P-2\":{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}},\"P-3\":{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}},\"P-4\":{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}},\"P-5\":{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}}}",
+      "version": 1,
+      "timeRestore": false,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}}}],\"highlightAll\":true,\"version\":true}"
+      }
+    }
+  },
+  {
+    "_id": "fde62d00-3bfb-11e7-bae5-41137ab28214",
+    "_type": "search",
+    "_source": {
+      "title": "Sök no bot",
+      "description": "",
+      "hits": 0,
+      "columns": [
+        "uriStem",
+        "uriQuery",
+        "status"
+      ],
+      "sort": [
+        "@timestamp",
+        "desc"
+      ],
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"highlightAll\":true,\"version\":true,\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"(NOT message:*bot*)\"}},\"filter\":[{\"$state\":{\"store\":\"appState\"},\"meta\":{\"alias\":null,\"disabled\":false,\"index\":\"logstash-*\",\"key\":\"uriPath.1\",\"negate\":false,\"value\":\"s\"},\"query\":{\"match\":{\"uriPath.1\":{\"query\":\"s\",\"type\":\"phrase\"}}}},{\"$state\":{\"store\":\"appState\"},\"meta\":{\"alias\":null,\"disabled\":false,\"index\":\"logstash-*\",\"key\":\"clientHostname\",\"negate\":true,\"value\":\"static.135.57.99.88.clients.your-server.de\"},\"query\":{\"match\":{\"clientHostname\":{\"query\":\"static.135.57.99.88.clients.your-server.de\",\"type\":\"phrase\"}}}},{\"$state\":{\"store\":\"appState\"},\"meta\":{\"alias\":null,\"disabled\":false,\"index\":\"logstash-*\",\"key\":\"clientHostname\",\"negate\":true,\"value\":\"sogouspider-106-120-173-126.crawl.sogou.com\"},\"query\":{\"match\":{\"clientHostname\":{\"query\":\"sogouspider-106-120-173-126.crawl.sogou.com\",\"type\":\"phrase\"}}}}]}"
+      }
+    }
+  },
+  {
+    "_id": "d7ce0950-3b31-11e7-afc1-af1ac21f7f52",
+    "_type": "search",
+    "_source": {
+      "title": "Spindlar",
+      "description": "",
+      "hits": 0,
+      "columns": [
+        "cfIpCountry",
+        "clientIP",
+        "clientHostname",
+        "uriStem",
+        "referer"
+      ],
+      "sort": [
+        "@timestamp",
+        "desc"
+      ],
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"highlightAll\":true,\"version\":true,\"query\":{\"query_string\":{\"query\":\"(NOT referer:*bovision.se) AND (NOT clientHostname:*googlebot.com) AND (NOT clientHostname:msnbot*) AND (NOT clientHostname:*yandex.com) AND (NOT clientHostname:*yahoo.net)\",\"analyze_wildcard\":true}},\"filter\":[{\"$state\":{\"store\":\"appState\"},\"meta\":{\"alias\":null,\"disabled\":false,\"index\":\"logstash-*\",\"key\":\"method\",\"negate\":false,\"value\":\"GET\"},\"query\":{\"match\":{\"method\":{\"query\":\"GET\",\"type\":\"phrase\"}}}},{\"$state\":{\"store\":\"appState\"},\"meta\":{\"alias\":null,\"disabled\":false,\"index\":\"logstash-*\",\"key\":\"clientIP\",\"negate\":true,\"value\":\"185.21.145.26\"},\"query\":{\"match\":{\"clientIP\":{\"query\":\"185.21.145.26\",\"type\":\"phrase\"}}}}]}"
+      }
+    }
+  },
+  {
+    "_id": "eb594f10-3c6d-11e7-a116-6f4b9a4ce9da",
+    "_type": "search",
+    "_source": {
+      "title": "clientIP no bots",
+      "description": "",
+      "hits": 0,
+      "columns": [
+        "clientIP",
+        "uriPath.1",
+        "referer",
+        "cookie",
+        "clientHostname"
+      ],
+      "sort": [
+        "@timestamp",
+        "desc"
+      ],
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"highlightAll\":true,\"version\":true,\"query\":{\"query_string\":{\"query\":\"(NOT clientHostname:*bot*)\",\"analyze_wildcard\":true}},\"filter\":[{\"$state\":{\"store\":\"appState\"},\"meta\":{\"alias\":null,\"disabled\":false,\"index\":\"logstash-*\",\"key\":\"kilobytesSent\",\"negate\":true,\"value\":\"0\"},\"query\":{\"match\":{\"kilobytesSent\":{\"query\":0,\"type\":\"phrase\"}}}}]}"
+      }
+    }
+  },
+  {
+    "_id": "22d73720-3b58-11e7-96d2-d53931985a5b",
+    "_type": "search",
+    "_source": {
+      "title": "bovision-uri",
+      "description": "",
+      "hits": 0,
+      "columns": [
+        "uriStem"
+      ],
+      "sort": [
+        "@timestamp",
+        "desc"
+      ],
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"highlightAll\":true,\"version\":true,\"filter\":[{\"meta\":{\"negate\":false,\"index\":\"logstash-*\",\"key\":\"computerName\",\"value\":\"BB-web01\",\"disabled\":false,\"alias\":null},\"query\":{\"match\":{\"computerName\":{\"query\":\"BB-web01\",\"type\":\"phrase\"}}},\"$state\":{\"store\":\"appState\"}}],\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}}}"
+      }
+    }
+  },
+  {
+    "_id": "36dc6cd0-3c5d-11e7-a116-6f4b9a4ce9da",
+    "_type": "search",
+    "_source": {
+      "title": "GoogleBot",
+      "description": "",
+      "hits": 0,
+      "columns": [
+        "uriPath.1",
+        "referer",
+        "cookie",
+        "clientHostname"
+      ],
+      "sort": [
+        "@timestamp",
+        "desc"
+      ],
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"highlightAll\":true,\"version\":true,\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"googlebot\"}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "985512e0-3c72-11e7-a116-6f4b9a4ce9da",
+    "_type": "search",
+    "_source": {
+      "title": "clientIP",
+      "description": "",
+      "hits": 0,
+      "columns": [
+        "clientIP",
+        "uriPath.1",
+        "referer",
+        "cookie",
+        "clientHostname"
+      ],
+      "sort": [
+        "@timestamp",
+        "desc"
+      ],
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"logstash-*\",\"highlightAll\":true,\"version\":true,\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[{\"$state\":{\"store\":\"appState\"},\"meta\":{\"alias\":null,\"disabled\":false,\"index\":\"logstash-*\",\"key\":\"kilobytesSent\",\"negate\":true,\"value\":\"0\"},\"query\":{\"match\":{\"kilobytesSent\":{\"query\":0,\"type\":\"phrase\"}}}}]}"
+      }
+    }
+  },
+  {
+    "_id": "b2322b60-3b34-11e7-afc1-af1ac21f7f52",
+    "_type": "visualization",
+    "_source": {
+      "title": "Top 'bad' spiders",
+      "visState": "{\"aggs\":[{\"enabled\":true,\"id\":\"1\",\"params\":{},\"schema\":\"metric\",\"type\":\"count\"},{\"enabled\":true,\"id\":\"2\",\"params\":{\"field\":\"clientIP.keyword\",\"order\":\"desc\",\"orderBy\":\"1\",\"size\":25},\"schema\":\"bucket\",\"type\":\"terms\"}],\"listeners\":{},\"params\":{\"perPage\":10,\"showMeticsAtAllLevels\":false,\"showPartialRows\":false,\"showTotal\":false,\"sort\":{\"columnIndex\":null,\"direction\":null},\"totalFunc\":\"sum\"},\"title\":\"Top 'bad' spiders\",\"type\":\"table\"}",
+      "uiStateJSON": "{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}}",
+      "description": "",
+      "savedSearchId": "d7ce0950-3b31-11e7-afc1-af1ac21f7f52",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "b00b2900-3c6e-11e7-a116-6f4b9a4ce9da",
+    "_type": "visualization",
+    "_source": {
+      "title": "Unique cookies no bots",
+      "visState": "{\"title\":\"Unique cookies no bots\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false,\"sort\":{\"columnIndex\":null,\"direction\":null},\"showTotal\":false,\"totalFunc\":\"sum\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"cardinality\",\"schema\":\"metric\",\"params\":{\"field\":\"cookie.keyword\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}}",
+      "description": "",
+      "savedSearchId": "eb594f10-3c6d-11e7-a116-6f4b9a4ce9da",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "1569a480-3c73-11e7-a116-6f4b9a4ce9da",
+    "_type": "visualization",
+    "_source": {
+      "title": "Unique clientIP",
+      "visState": "{\"title\":\"Unique clientIP\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false,\"sort\":{\"columnIndex\":null,\"direction\":null},\"showTotal\":false,\"totalFunc\":\"sum\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"cardinality\",\"schema\":\"metric\",\"params\":{\"field\":\"clientIP.keyword\",\"customLabel\":\"Unique clientIP\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}}",
+      "description": "",
+      "savedSearchId": "985512e0-3c72-11e7-a116-6f4b9a4ce9da",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "85096320-3c73-11e7-a116-6f4b9a4ce9da",
+    "_type": "visualization",
+    "_source": {
+      "title": "Unique clientIP no bots",
+      "visState": "{\"title\":\"Unique clientIP no bots\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false,\"sort\":{\"columnIndex\":null,\"direction\":null},\"showTotal\":false,\"totalFunc\":\"sum\"},\"aggs\":[{\"id\":\"1\",\"enabled\":true,\"type\":\"cardinality\",\"schema\":\"metric\",\"params\":{\"field\":\"clientIP.keyword\",\"customLabel\":\"Unique ClientIP\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"params\":{\"sort\":{\"columnIndex\":null,\"direction\":null}}}}",
+      "description": "",
+      "savedSearchId": "eb594f10-3c6d-11e7-a116-6f4b9a4ce9da",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  }
+]
